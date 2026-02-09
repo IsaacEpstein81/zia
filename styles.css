@@ -48,7 +48,15 @@ code{background:rgba(255,255,255,.08); padding:2px 6px; border-radius:10px}
 .brand__title{font-weight:800}
 .brand__subtitle{font-size:12px; color:var(--muted)}
 
-.nav{display:flex; align-items:center; gap:14px; font-size:14px}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:14px;
+  font-size:14px;
+  flex-wrap:wrap;          /* lets it wrap instead of needing mobile menu */
+  max-width: 70vw;
+}
 .nav a{opacity:.86}
 .nav a:hover{opacity:1}
 .nav__cta{
@@ -406,6 +414,12 @@ h1{font-size:42px; line-height:1.08; margin:14px 0 12px}
   .ctaBox{grid-template-columns:1fr}
   .miniGrid{grid-template-columns:1fr}
 }
+
+@media (max-width: 980px){
+  .topbar__inner{flex-wrap:wrap}
+  .nav{max-width:100%; justify-content:flex-start}
+}
+
 
 @media print{
   .topbar, #copyLinkBtn, #menuBtn, .mobileNav, #videoBtn, #loomLink, #printBtn, #kickoffBtn, #kickoffBtn2, #emailBtn {

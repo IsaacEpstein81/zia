@@ -94,24 +94,7 @@ function setupPrint(){
   $("#printBtn").addEventListener("click", ()=>window.print());
 }
 
-function setupMobileMenu(){
-  const btn = $("#menuBtn");
-  const nav = $("#mobileNav");
 
-  btn.addEventListener("click", ()=>{
-    const open = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!open));
-    nav.hidden = open;
-  });
-
-  // close after clicking a link
-  nav.addEventListener("click", (e)=>{
-    if (e.target.tagName.toLowerCase() === "a") {
-      btn.setAttribute("aria-expanded", "false");
-      nav.hidden = true;
-    }
-  });
-}
 
 function setYear(){
   $("#year").textContent = new Date().getFullYear();
@@ -121,5 +104,4 @@ setLinks();
 setupTabs();
 setupCopyButtons();
 setupPrint();
-setupMobileMenu();
 setYear();
