@@ -1,138 +1,740 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Zia Recovery Center × OpenRecovery — Assessment & Activation</title>
-  <meta name="description" content="Proposal microsite: Zia Recovery Center × OpenRecovery — 90-day Assessment & Activation with MVDS deliverables and Phase B annual integration plan." />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zia Recovery Center × OpenRecovery | Assessment & Activation Proposal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gh-dark: #0d1117;
+            --gh-darker: #010409;
+            --gh-card: #161b22;
+            --gh-border: #30363d;
+            --gh-accent: #58a6ff;
+            --gh-green: #3fb950;
+            --gh-purple: #d2a8ff;
+            --gh-orange: #ff9500;
+            --gh-text: #c9d1d9;
+            --gh-text-muted: #8b949e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gh-darker);
+            color: var(--gh-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--gh-darker) 0%, var(--gh-dark) 100%);
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--gh-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--gh-border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.15; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .company-tag {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--gh-card);
+            border: 1px solid var(--gh-border);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gh-accent) 0%, var(--gh-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--gh-text-muted);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gh-green);
+            color: var(--gh-darker);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(63, 185, 80, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--gh-accent);
+        }
+
+        .section-subtitle {
+            color: var(--gh-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .problem-statement {
+            background: var(--gh-card);
+            border: 1px solid var(--gh-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .problem-statement h3 {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gh-orange);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .problem-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .problem-list li {
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .problem-list li:before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: var(--gh-orange);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .solution-card {
+            background: var(--gh-card);
+            border: 1px solid var(--gh-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            border-color: var(--gh-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(88, 166, 255, 0.1);
+        }
+
+        .solution-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gh-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .solution-card p {
+            color: var(--gh-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gh-accent), var(--gh-purple));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--gh-accent);
+            border-radius: 50%;
+            border: 3px solid var(--gh-darker);
+        }
+
+        .timeline-item h4 {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gh-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .duration {
+            color: var(--gh-text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .deliverables-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .deliverable-item {
+            background: var(--gh-card);
+            border: 1px solid var(--gh-border);
+            border-left: 4px solid var(--gh-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .deliverable-item h5 {
+            color: var(--gh-green);
+            margin-bottom: 0.5rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .deliverable-item p {
+            color: var(--gh-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .proof-section {
+            background: var(--gh-card);
+            border: 1px solid var(--gh-border);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gh-green) 0%, var(--gh-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--gh-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--gh-card);
+            border: 2px solid var(--gh-border);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gh-accent);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:before {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gh-accent);
+            color: var(--gh-darker);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--gh-accent);
+            transform: translateY(-5px);
+        }
+
+        .pricing-tier {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gh-accent);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-amount {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gh-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--gh-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gh-green);
+            font-weight: 700;
+        }
+
+        .cta-secondary {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background: transparent;
+            color: var(--gh-accent);
+            border: 2px solid var(--gh-accent);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: var(--gh-accent);
+            color: var(--gh-darker);
+        }
+
+        .pricing-card.featured .cta-secondary {
+            background: var(--gh-accent);
+            color: var(--gh-darker);
+        }
+
+        .pricing-card.featured .cta-secondary:hover {
+            background: transparent;
+            color: var(--gh-accent);
+        }
+
+        .final-cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--gh-card) 0%, var(--gh-darker) 100%);
+            border: 1px solid var(--gh-border);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            color: var(--gh-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--gh-text-muted);
+            border-top: 1px solid var(--gh-border);
+        }
+
+        .code-accent {
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: var(--gh-purple);
+            background: var(--gh-darker);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <div class="brand">
-        <div class="brand__mark">OR</div>
-        <div>
-          <div class="brand__title">OpenRecovery</div>
-          <div class="brand__subtitle">Proposal Microsite</div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="grid-bg"></div>
+        <div class="hero-content">
+            <div class="company-tag">ZIA RECOVERY CENTER × OPENRECOVERY</div>
+            <h1>Assessment & Activation</h1>
+            <p class="subtitle">90-day deployment to convert policies, training practices, and supervision workflows into working systems that reduce administrative effort and strengthen staff readiness</p>
         </div>
-      </div>
-      <nav class="nav">
-        <a href="#summary">Summary</a>
-        <a href="#outcomes">Outcomes</a>
-        <a href="#phases">Phases</a>
-        <a href="#scope">Scope</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#investment">Investment</a>
-        <a href="#deliverables">Deliverables</a>
-        <a href="#next-steps" class="nav__cta">Next Steps</a>
-      </nav>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
     </div>
-  </header>
 
-  <main>
-
-    <section class="hero" id="summary">
-      <div class="container hero__grid">
-        <div>
-          <div class="pill">Assessment & Activation • 90 Days</div>
-          <h1>Zia Recovery Center × OpenRecovery</h1>
-          <p class="lead">
-            Convert Zia’s policies, training practices, and supervision workflows into
-            <strong>working systems</strong> that reduce low-leverage admin effort and strengthen staff readiness — without disrupting care.
-          </p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" id="kickoffBtn" href="#">Book kickoff</a>
-            <button class="btn btn--ghost" id="emailBtnTop">Copy contact email</button>
-            <button class="btn btn--ghost" id="copyLinkBtn">Copy link</button>
-          </div>
-
-          <div class="hero__highlights">
-            <div class="stat">
-              <div class="stat__k">Phase A Fee</div>
-              <div class="stat__v">$75,000 fixed</div>
-              <div class="stat__s">$25k kickoff / Day 30 / Day 60</div>
+    <!-- We Heard You Section -->
+    <section id="problem">
+        <h2>Opportunities</h2>
+        <p class="section-subtitle">Three ways to strengthen operations without disrupting care</p>
+        
+        <div class="solution-grid">
+            <div class="solution-card">
+                <h4>Reduce time spent on "busy work"</h4>
+                <p><strong>The challenge:</strong> Teams lose time to repetitive tasks—documentation review, manual QA checks, and repeated clarification requests on policies and procedures.</p>
+                <p style="margin-top: 1rem;"><strong>What we build:</strong> A cited Org Copilot and supervisor visibility views.</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-green);"><strong>What it enables:</strong> Faster answers, fewer interruptions, and less manual review burden for routine questions.</p>
             </div>
-            <div class="stat">
-              <div class="stat__k">Deliverables</div>
-              <div class="stat__v">Copilot • Roleplay • Supervisor views</div>
-              <div class="stat__s">Plus Phase B annual plan + fixed pricing proposal</div>
+            <div class="solution-card">
+                <h4>Strengthen training consistency—at scale</h4>
+                <p><strong>The challenge:</strong> Strong teams benefit from standardized practice for high-frequency and high-risk situations (de-escalation, safety pathways, documentation-critical moments).</p>
+                <p style="margin-top: 1rem;"><strong>What we build:</strong> Zia-specific roleplay scenarios with scoring and feedback aligned to your expectations.</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-green);"><strong>What it enables:</strong> Consistent practice, clearer evaluation signals, and a repeatable training loop embedded into onboarding.</p>
             </div>
-            <div class="stat">
-              <div class="stat__k">Focus</div>
-              <div class="stat__v">Usable tools</div>
-              <div class="stat__s">Not a static report</div>
+            <div class="solution-card">
+                <h4>Improve supervisory visibility</h4>
+                <p><strong>The challenge:</strong> Supervision works best when signals arrive early—seeing where support is needed before incidents or disengagement occur.</p>
+                <p style="margin-top: 1rem;"><strong>What we build:</strong> Lightweight supervisor visibility views plus behavioral analytics using available signals.</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-green);"><strong>What it enables:</strong> Targeted coaching, trend summaries (incident themes, engagement drift), and more proactive supervision.</p>
             </div>
-          </div>
         </div>
-
-        <div class="hero__panel">
-          <h2>Executive Summary</h2>
-          <p>This 90-day engagement builds and validates initial systems using Zia’s existing policies, procedures, and available artifacts/data — then defines a Phase B annual program.</p>
-          <ul class="checklist">
-            <li>Confirm what exists and how it’s stored</li>
-            <li>Select highest-value MVDS scope</li>
-            <li>Build working systems and validate usability</li>
-            <li>Deliver Phase B annual scope + fixed pricing proposal</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="investment">
-      <div class="container">
-        <div class="section__head">
-          <h2>Investment</h2>
-          <p class="muted">Phase A is fixed. Phase B annual pricing is delivered at Day 90 after validated scope + integration requirements.</p>
-        </div>
+    <!-- The Plan Section -->
+    <section id="plan">
+        <h2>The Plan</h2>
+        <p class="section-subtitle">A phased approach that delivers usable tools immediately while building toward full integration</p>
 
-        <div class="singlePrice">
-          <div class="priceCard priceCard--featured">
-            <div class="priceLabel">Phase A</div>
-            <h3>Assessment & Activation (90 days)</h3>
-            <div class="priceCard__price">$75,000 fixed</div>
-            <ul>
-              <li>$25,000 at kickoff</li>
-              <li>$25,000 at Day 30</li>
-              <li>$25,000 at Day 60</li>
-            </ul>
-          </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Phase A: Assessment & Activation</h4>
+                <p class="duration">Weeks 1–12 | 90 Days Fixed Scope</p>
+                <p><strong>Discovery (Weeks 1–3):</strong> Document collection and policy ingestion kickoff, leadership + frontline interviews, scenario mapping and evaluation alignment, confirm what data/artifacts exist and in what format</p>
+                <p><strong>Build & Prototype (Weeks 4–10):</strong> Org Copilot live (MVDS), roleplay scenarios live (priority set), prototype supervisor visibility views and governance guardrails drafted, weekly feedback cycles with Zia stakeholders</p>
+                <p><strong>Validation & Handoff (Weeks 11–12):</strong> Supervisor and leadership validation, adjustments and refinements, delivery of Phase B annual scope + integration plan + fixed pricing proposal</p>
+            </div>
 
-          <div class="phaseBCallout">
-            <h3>Phase B (Annual): Ongoing Activation & Integration</h3>
-            <p>At Day 90, OpenRecovery delivers a Phase B annual plan with a <strong>fixed annual price</strong> based on validated scope and integration.</p>
-          </div>
+            <div class="timeline-item">
+                <h4>Phase B: Ongoing Activation & Integration</h4>
+                <p class="duration">Annual Program | Pricing Delivered at Day 90</p>
+                <p><strong>What unlocks:</strong> Ongoing policy updates, scenario expansion and continuous improvement, EMR/workflow integration so intelligence appears in the flow of work, automated pipelines that prevent "frozen" analytics</p>
+                <p><strong>Why it matters:</strong> Without Phase B, the system becomes static—policy alignment won't stay current as procedures evolve, scenarios won't refresh based on operational reality, and the system won't reach full impact without workflow integration</p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="section section--cta" id="next-steps">
-      <div class="container">
-        <h2>Next Steps</h2>
-        <ol class="steps">
-          <li>Confirm engagement path</li>
-          <li>Schedule kickoff</li>
-          <li>Initiate document collection</li>
-          <li>Begin scenario mapping</li>
-        </ol>
+    <!-- What You Get Section -->
+    <section id="deliverables">
+        <h2>What You Get</h2>
+        <p class="section-subtitle">Tangible deliverables by Day 90</p>
 
-        <div class="ctaRow">
-          <a class="btn btn--primary" id="kickoffBtn2" href="#">Book kickoff</a>
-          <a class="btn btn--ghost" href="#investment">Review investment</a>
-          <button class="btn btn--ghost" id="emailBtn">Copy contact email</button>
+        <div class="deliverables-grid">
+            <div class="deliverable-item">
+                <h5>Workstream A: Training & Roleplay Activation</h5>
+                <p><strong>MVDS:</strong> Scenario-mapping workshop with leadership + frontline representation, initial set of Zia-specific roleplay scenarios (priority set), scoring rubric + feedback framework aligned to Zia expectations, plan for embedding roleplay into onboarding and annual evaluations</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-text-muted);"><strong>Annual expansion:</strong> Continuous scenario expansion by role/location, ongoing rubric calibration, continuous improvement loop driven by training performance and supervisor feedback</p>
+            </div>
+
+            <div class="deliverable-item">
+                <h5>Workstream B: Internal AI Copilot (Org Copilot)</h5>
+                <p><strong>MVDS:</strong> Ingestion of policies/SOPs/training resources, a private Zia-only Copilot that answers staff questions with exact source citations and links to relevant training, query logging to surface recurring confusion and training needs, lightweight update workflow for policy changes</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-text-muted);"><strong>Annual expansion:</strong> Continuous ingestion/versioning of updated policies, steady update cadence so Copilot stays aligned with "how things are done now," trend insights from recurring questions, deeper policy-to-training linkage</p>
+            </div>
+
+            <div class="deliverable-item">
+                <h5>Workstream C: Supervision & QA Intelligence</h5>
+                <p><strong>MVDS:</strong> Assessment of current supervision and QA workflows, prototype supervisor visibility views highlighting support-needed signals and recurring knowledge gaps, definition of governance guardrails supporting transparency, auditability, clinician trust, and practical privacy expectations</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-text-muted);"><strong>Annual expansion:</strong> Move from prototype views to operational dashboards with stable definitions, trend views over time (skills, training coverage, recurring friction points), alert thresholds tuned to avoid fatigue and maintain trust</p>
+            </div>
+
+            <div class="deliverable-item">
+                <h5>Workstream D: Integration & Deployment Planning</h5>
+                <p><strong>MVDS:</strong> Phased rollout plan by role (clinicians, techs, supervisors) and across locations, workflow recommendations for where Copilot and roleplay live day-to-day, integration roadmap to validate feasibility and sequencing, readiness checklist for broader deployment</p>
+                <p style="margin-top: 0.5rem; color: var(--gh-text-muted);"><strong>Annual expansion:</strong> EMR/workflow integration so Copilot, training prompts, and supervisory views appear in the flow of work, automated pipelines that reduce manual exports, permissions/role-based access alignment, ongoing rollout support across locations</p>
+            </div>
+
+            <div class="deliverable-item">
+                <h5>Phase B Annual Plan</h5>
+                <p>A Phase B (annual) scope + integration plan + fixed pricing proposal based on validated feasibility and priorities, delivered at the end of the 90-day Assessment & Activation period</p>
+            </div>
         </div>
-
-        <footer class="footer">
-          <div class="muted">© <span id="year"></span> OpenRecovery</div>
-        </footer>
-      </div>
     </section>
 
-  </main>
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2>Investment</h2>
+        <p class="section-subtitle">Clear, fixed pricing with no surprises</p>
 
-  <div class="toast" id="toast" hidden></div>
-  <script src="script.js"></script>
+        <div class="pricing-grid">
+            <div class="pricing-card featured">
+                <div class="pricing-tier">Phase A</div>
+                <div class="pricing-amount">$75K</div>
+                <div class="pricing-period">90 days / Fixed fee</div>
+                <ul class="pricing-features">
+                    <li>Assessment & Activation</li>
+                    <li>Org Copilot (MVDS) live</li>
+                    <li>Priority roleplay scenario set</li>
+                    <li>Supervisor visibility views (prototype)</li>
+                    <li>Deployment roadmap + integration plan</li>
+                    <li>Weekly stakeholder feedback cycles</li>
+                    <li>Phase B annual proposal delivered</li>
+                </ul>
+                <a href="#next-steps" class="cta-secondary">Start Phase A</a>
+                <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--gh-text-muted);">
+                    Payment: $25K at kickoff, Day 30, Day 60
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-tier">Phase B</div>
+                <div class="pricing-amount">TBD</div>
+                <div class="pricing-period">Annual / Priced at Day 90</div>
+                <ul class="pricing-features">
+                    <li>Ongoing Activation & Integration</li>
+                    <li>Continuous policy & training updates</li>
+                    <li>Expanded roleplay library</li>
+                    <li>Operational analytics over time</li>
+                    <li>EMR/workflow integration</li>
+                    <li>Automated data pipelines</li>
+                    <li>Permissions & access hardening</li>
+                    <li>Ongoing rollout support</li>
+                </ul>
+                <a href="#next-steps" class="cta-secondary">Learn More</a>
+                <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--gh-text-muted);">
+                    Keeps system current and fully operational
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; background: var(--gh-card); border: 1px solid var(--gh-border); border-radius: 8px; padding: 2rem; text-align: center;">
+            <h4 style="color: var(--gh-accent); margin-bottom: 1rem; font-family: 'DM Sans', sans-serif;">What Happens Without Phase B?</h4>
+            <p style="color: var(--gh-text-muted);">
+                Zia retains the MVDS tools built in Phase A, but policy and training alignment won't stay current as procedures evolve, scenarios won't continuously refresh based on operational reality, and the system won't reach its full operational impact without workflow/EMR integration.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="next-steps">
+        <div class="final-cta">
+            <h2>Next Steps</h2>
+            <p>Ready to begin the 90-day Assessment & Activation?</p>
+            
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--gh-border);">
+                <h4 style="color: var(--gh-accent); margin-bottom: 1rem; font-family: 'DM Sans', sans-serif;">What We Need to Get Started</h4>
+                <div style="text-align: left; max-width: 600px; margin: 0 auto; color: var(--gh-text-muted);">
+                    <p style="margin-bottom: 0.5rem;">✓ Primary point of contact and weekly review cadence</p>
+                    <p style="margin-bottom: 0.5rem;">✓ Policies/SOPs/training materials (any format)</p>
+                    <p style="margin-bottom: 0.5rem;">✓ Practical access method for operational artifacts</p>
+                    <p style="margin-bottom: 0.5rem;">✓ Limited staff time for scenario mapping and feedback</p>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--gh-text-muted); margin-top: 2rem;">
+                    Questions? Reach us at <span class="code-accent">zachary@openrecovery.com</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>OpenRecovery × Zia Recovery Center Assessment & Activation</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Proposal generated February 2026 • Valid for 45 days</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Add animation styles to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Track engagement (placeholder for analytics)
+        function trackEngagement(action, label) {
+            console.log(`Engagement: ${action} - ${label}`);
+            // In production, send to analytics platform
+        }
+
+        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                trackEngagement('CTA Click', e.target.textContent);
+            });
+        });
+
+        // Section visibility tracking
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
